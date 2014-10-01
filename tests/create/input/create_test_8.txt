@@ -1,0 +1,9 @@
+login
+agent
+create
+123456
+ABCDEFGHIJKLMNO
+deposit
+123456
+1
+logout
