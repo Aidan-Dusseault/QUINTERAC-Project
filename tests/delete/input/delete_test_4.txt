@@ -1,0 +1,8 @@
+login
+agent
+delete
+123456
+ABCDEFGHIJKLMNO
+withdraw
+123456
+logout

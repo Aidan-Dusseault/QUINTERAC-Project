@@ -1,0 +1,6 @@
+login
+retail
+deposit
+123456
+100001
+logout

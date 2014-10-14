@@ -5,5 +5,4 @@ create
 ABCDEFGHIJKLMNO
 withdraw
 123456
-1
 logout

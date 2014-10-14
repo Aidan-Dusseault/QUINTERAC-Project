@@ -1,0 +1,6 @@
+login
+retail
+transfer
+123456
+1000000
+logout
