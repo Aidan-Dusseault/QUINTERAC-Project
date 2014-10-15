@@ -6,13 +6,13 @@ def login(loggedIn, accounts):
 		print ("You are already logged in.")
 		return False
 
-	loginType = raw_input(terminal)
+	loginType = raw_input('> ')
 		
 	if (loginType != 'agent' and loginType != 'retail'):
 		print ("Error, invalid login type.")
 		return False
 	
-	if (readAccounts("./accounts.txt", accounts)):
+	if (readAccounts("../accounts/accounts.txt", accounts)):
 		return loginType
 	else:
 		print("Error, invalid accounts list file")

@@ -1,7 +1,5 @@
 
-from loginLogic import *
-
-terminal = '> '
+from login import *
 
 def main():
 
@@ -10,12 +8,12 @@ def main():
 	loggedIn = False
 
 	while True:
-		command = raw_input(terminal)
+		command = raw_input('> ')
 		if command == 'logout':
 			break
 
 		elif command == 'login':
-			loggedIn = loginLogic.login(loggedIn, accounts)
+			loggedIn = login(loggedIn, accounts)
 			
 		else:
 			print("Error, command not recognized.")
@@ -24,7 +22,7 @@ def main():
 	
 
 def getValidAccount(accounts):
-	inputAccount = raw_input(terminal)
+	inputAccount = raw_input('> ')
 	
 	try:
 		accountId = int(inputAccount)
