@@ -18,6 +18,8 @@ def main():
 	
 	transactions = []
 
+        withdrawals = {}
+
 	while True:
 		command = raw_input('> ')
 		if (not loginType and command != 'login'):
@@ -43,6 +45,8 @@ def main():
 			
 		else:
 			print "Error, command not recognized."
+                if loginType == 0:
+                        withdrawals = {}
 	
 if __name__ == "__main__":
 	main()
