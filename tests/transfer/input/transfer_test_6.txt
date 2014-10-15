@@ -1,0 +1,7 @@
+login
+retail
+transfer
+123456
+654321
+0
+logout

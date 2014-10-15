@@ -5,5 +5,4 @@ create
 ABCDEFGHIJKLMNO
 deposit
 123456
-1
 logout

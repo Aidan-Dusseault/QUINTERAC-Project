@@ -5,6 +5,4 @@ create
 ABCDEFGHIJKLMNO
 transfer
 123456
-654321
-1
 logout

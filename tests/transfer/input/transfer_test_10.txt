@@ -1,0 +1,5 @@
+login
+retail
+transfer
+0
+logout

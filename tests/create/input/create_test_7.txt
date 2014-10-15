@@ -5,5 +5,4 @@ create
 ABCDEFGHIJKLMNO
 delete
 123456
-ABCDEFGHIJKLMNO
 logout

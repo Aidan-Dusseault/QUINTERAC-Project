@@ -1,0 +1,9 @@
+login
+agent
+create
+123456
+ABCDEFGHIJKLMNO
+transfer
+654321
+123456
+logout
