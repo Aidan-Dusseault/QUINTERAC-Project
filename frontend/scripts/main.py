@@ -1,56 +1,48 @@
 
 from login import *
+from logout import *
+
+from create import *
+from delete import *
+
+from deposit import *
+from withdraw import *
+from transfer import *
 
 def main():
 
+	loginType = 0
+
 	accounts = []
 	accountId = 0
-	loggedIn = False
+	
+	transactions = []
 
 	while True:
 		command = raw_input('> ')
-		if command == 'logout':
-			break
+		if (not loginType and command != 'login'):
+			print "Error, please login before entering other commands."
+		
+		elif (loginType and command == 'login'):
+			print "You are already logged in."
 
 		elif command == 'login':
-			loggedIn = login(loggedIn, accounts)
+			loginType = login(accounts)
+			
+		elif command == 'logout':
+			loginType = logout(transactions)
+
+		elif loginType == 2 and command == 'create':
+			print "Error, please use agent mode to create accounts."
+			
+		elif command == 'create':
+			create(accounts, transactions)
+
+		elif command == 'deposit':
+			deposit(loginType, accounts, transactions)
 			
 		else:
-			print("Error, command not recognized.")
-			
-
-	
-
-def getValidAccount(accounts):
-	inputAccount = raw_input('> ')
-	
-	try:
-		accountId = int(inputAccount)
-	except ValueError:
-		print 'Error, invalid account number.'
-	
-	for currentAccount in accounts:
-			
-		if inputAccount == currentAccount:
-			return accountId
-			
-	return False
-	
-
-			
-def writeFile(filename, contents):
-	file = open(filename, 'w+')
-	file.write(contents)
-	file.close()
-
-def readFile(filename):
-	file = open(filename, 'r')
-	contents = file.read()
-	file.close()
-	return contents
-
-def compare(inputFileName, outputFileName):
-	return readFile(inputFileName) == readFile(inputFileName)
+			print "Error, command not recognized."
 	
 if __name__ == "__main__":
 	main()

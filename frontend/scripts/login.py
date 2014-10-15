@@ -1,23 +1,24 @@
 
+def login(accounts):
 
-def login(loggedIn, accounts):
-	
-	if (loggedIn):
-		print ("You are already logged in.")
-		return False
+	accountType = 0
 
 	loginType = raw_input('> ')
-		
-	if (loginType != 'agent' and loginType != 'retail'):
-		print ("Error, invalid login type.")
-		return False
-	
-	if (readAccounts("../accounts/accounts.txt", accounts)):
-		return loginType
+
+	if (loginType == 'agent'):
+		accountType = 1
+	elif (loginType == 'retail'):
+		accountType = 2
 	else:
-		print("Error, invalid accounts list file")
-		return False
-		
+		print "Error, invalid login type."
+		return 0
+
+	if (readAccounts("../accounts/accounts.txt", accounts)):
+		return accountType
+	else:
+		print "Error, invalid accounts list file"
+		return 0
+
 def readAccounts(filename, accounts):
 	file = open(filename, 'r')
 	for line in file:
