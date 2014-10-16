@@ -1,4 +1,7 @@
 
+#######
+##	This function checks to see if a given account is in the accounts list.
+#######
 def accountExists(account, accountList):
 
 	accountId = int(account)
@@ -10,6 +13,9 @@ def accountExists(account, accountList):
 			
 	return False
 
+#######
+##	This function checks to see if a given account is in the accounts list.
+#######
 def validAccountNumber(account, accountList):
 	
 	try:
@@ -20,6 +26,9 @@ def validAccountNumber(account, accountList):
 		
 	return True
 
+#######
+##	This function checks to see if an account name meets the requirements.
+#######	
 def validAccountName(accountName):
 	
 	if (len(accountName) > 15):
@@ -32,6 +41,9 @@ def validAccountName(accountName):
 		
 	return True
 
+#######
+##	This function checks to see if an amount number is valid and within an acceptable range.
+#######	
 def validAmountNumber(loginType, amount):
 	
 	amountInt = 0
@@ -57,13 +69,18 @@ def validAmountNumber(loginType, amount):
 			
 	return True
 
+#######
+##	This function returns a string of a number of given length, padded by zeros on the left.
+#######	
 def formatNumber(number, length):
 
 	outputString = number.strip()
 	outputString.rjust(length, '0')
 	return outputString
 	
-
+#######
+##	This function returns a string of a number of given length, padded by spaces on the right.
+#######	
 def formatAccountName(accountName):
 
 	outputString = accountName.strip()

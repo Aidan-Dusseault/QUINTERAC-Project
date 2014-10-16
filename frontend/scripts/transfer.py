@@ -1,6 +1,11 @@
 
 from util import *
 
+#######
+##	This function asks for user input for account numbers for account 1 and 2 
+##	before asking for the transfer amount, stopping if the input is illegal. 
+##  It appends the transfer transaction to the transaction list.
+#######
 def transfer(loginType, accounts, transactions):
     
     accountNumber = raw_input('> ')
