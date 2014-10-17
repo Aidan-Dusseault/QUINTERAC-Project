@@ -1,6 +1,6 @@
 
 #######
-##  This function asks the user for the login type (‘agent’ or ‘retail’) before calling readAccounts.
+##  This function asks the user for the login type ('agent' or'retail') before calling readAccounts.
 ##  The function returns 0 for failure, 1 for agent login and 2 for retail login.
 #######
 def login(accounts):
