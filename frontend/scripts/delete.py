@@ -24,7 +24,7 @@ def delete(accounts, transactions):
 
 				# Add the delete transaction to the transaction list
 				transactions.append("05 " + formatNumber(accountNumber, 6) + " " + formatNumber(accountNumber, 6) +
-									" 00000000 " + formatAccountName(accountName, 15))
+									" 00000000 " + formatAccountName(accountName))
 
 		else:
 			print "Error, account does not exist."

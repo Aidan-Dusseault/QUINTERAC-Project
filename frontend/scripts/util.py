@@ -1,5 +1,15 @@
 
 #######
+##	This function reads input and handles end of file errors.
+#######
+def input():
+	try:
+		return raw_input('')
+	except EOFError:
+		import sys
+		sys.exit()
+
+#######
 ##	This function checks to see if a given account is in the accounts list.
 #######
 def accountExists(account, accountList):

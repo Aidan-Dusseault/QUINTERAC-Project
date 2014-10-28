@@ -10,13 +10,13 @@ def transfer(loginType, accounts, transactions):
     
     accountNumber = raw_input('')
 
-    if(validAccountNumber(accountNumber, account)):
+    if(validAccountNumber(accountNumber, accounts)):
         
         if(accountExists(accountNumber, accounts)):
             
             accountNumber2 = raw_input('')
             
-            if(validAccountNumber(accountNumber2, account)):
+            if(validAccountNumber(accountNumber2, accounts)):
         
                 if(accountExists(accountNumber2, accounts)):
 

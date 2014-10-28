@@ -8,8 +8,8 @@ set "out_dir=./results/d%YYYY%-%MM%-%DD%_t%HH%-%Min%-%Sec%"
 
 mkdir "%out_dir%" >NUL
 
-echo "Running Tests..."
-echo "________________"
+echo Running Tests...
+echo ________________
 
 
 
@@ -24,3 +24,7 @@ for %%t in (create delete deposit general login logout transfer withdraw) do (
 		python frontend/scripts/main.py .\tests\%%t\accounts\%%t_accounts_1.txt %out_dir%/%%t/summary/%%~nf.txt < %%f >> %out_dir%/%%t/output/%%~nf.txt
 	)
 )
+
+echo ________________
+echo Tests Complete
+

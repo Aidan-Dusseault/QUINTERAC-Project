@@ -11,6 +11,8 @@ from deposit import *
 from withdraw import *
 from transfer import *
 
+from util import *
+
 #######
 ##	This function includes the infinite loop used while the program is running.
 ##  It processes the input commands.
@@ -29,7 +31,7 @@ def main(argv):
 	# Infinite loop for receiving input.
 	while True:
 		
-		command = raw_input('')
+		command = input()
 		
 		# Disallow any actions until login.
 		if (not loginType and command != 'login'):

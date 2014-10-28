@@ -12,8 +12,6 @@ def logout(transactions, filename):
 #######
 def writeFile(filename, lines):
 	file = open(filename, 'w+')
-	for line in lines[:-1]:
+	for line in lines:
 		file.write(line + "\n")
-	if len(lines) > 0:
-		file.write(lines[len(lines)-1])
 	file.close()
