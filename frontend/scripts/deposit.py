@@ -8,7 +8,7 @@ from util import *
 def deposit(loginType, accounts, transactions):
 
 	# Get the account number
-	accountNumber = raw_input('> ')
+	accountNumber = raw_input('')
 	
 	# Check to see if the account number is legal
 	if (validAccountNumber(accountNumber, accounts)):
@@ -17,7 +17,7 @@ def deposit(loginType, accounts, transactions):
 		if (accountExists(accountNumber, accounts)):
 		
 			# Get the amount number
-			amountNumber = raw_input('> ')
+			amountNumber = raw_input('')
 		
 			# Check to see if the acmount is legal
 			if (validAmountNumber(loginType, amountNumber)):

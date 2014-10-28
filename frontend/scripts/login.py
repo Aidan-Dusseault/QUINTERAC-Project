@@ -3,12 +3,12 @@
 ##  This function asks the user for the login type ('agent' or'retail') before calling readAccounts.
 ##  The function returns 0 for failure, 1 for agent login and 2 for retail login.
 #######
-def login(accounts):
+def login(accounts, filename):
 
 	accountType = 0
 
 	# Get login input
-	loginType = raw_input('> ')
+	loginType = raw_input('')
 
 	# Set the login flag
 	if (loginType == 'agent'):
@@ -20,7 +20,7 @@ def login(accounts):
 		return 0
 
 	# Read the accounts file and return the login type
-	if (readAccounts("../accounts/accounts.txt", accounts)):
+	if (readAccounts(filename, accounts)):
 		return accountType
 	else:
 		print "Error, invalid accounts list file"

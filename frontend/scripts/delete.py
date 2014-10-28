@@ -8,7 +8,7 @@ from util import *
 def delete(accounts, transactions):
 	
 	# Get the account number
-	accountNumber = raw_input('> ')
+	accountNumber = raw_input('')
 	
 	# Check to see if the account number is legal
 	if (validAccountNumber(accountNumber, accounts)):
@@ -17,7 +17,7 @@ def delete(accounts, transactions):
 		if (accountExists(accountNumber, accounts)):
 			
 			# Get the account name
-			accountName = raw_input('> ')
+			accountName = raw_input('')
 			
 			# Check to see if the account name is legal
 			if (validAccountName(accountName)):

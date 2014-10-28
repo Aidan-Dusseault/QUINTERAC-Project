@@ -14,7 +14,7 @@ def withdraw(loginType, accounts, transactions, withdrawals):
         validTotal = 999999999
 
 	# Get the account number
-	accountNumber = raw_input('> ')
+	accountNumber = raw_input('')
 	
 	# Check to see if the number is legal
 	if (validAccountNumber(accountNumber, accounts)):
@@ -23,7 +23,7 @@ def withdraw(loginType, accounts, transactions, withdrawals):
 		if (accountExists(accountNumber, accounts)):
 		
 			# Get the withdraw amount
-			amountNumber = raw_input('> ')
+			amountNumber = raw_input('')
 		
 			# Check to see the amount is legal
 			if (validAmountNumber(loginType, amountNumber)):

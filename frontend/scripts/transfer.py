@@ -8,19 +8,19 @@ from util import *
 #######
 def transfer(loginType, accounts, transactions):
     
-    accountNumber = raw_input('> ')
+    accountNumber = raw_input('')
 
     if(validAccountNumber(accountNumber, account)):
         
         if(accountExists(accountNumber, accounts)):
             
-            accountNumber2 = raw_input('> ')
+            accountNumber2 = raw_input('')
             
             if(validAccountNumber(accountNumber2, account)):
         
                 if(accountExists(accountNumber2, accounts)):
 
-                    amountNumber = raw_input('> ')
+                    amountNumber = raw_input('')
                         
                     if(validAmountNumber(loginType, amountNumber)):
                         

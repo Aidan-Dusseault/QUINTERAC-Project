@@ -2,9 +2,9 @@
 #######
 ##  This function calls writeFile and returns 0.
 #######
-def logout(transactions):
+def logout(transactions, filename):
 	# Write the transactions to the summary file.
-	writeFile("../summaries/out.txt", transactions)
+	writeFile(filename, transactions)
 	return 0
 	
 #######
@@ -12,6 +12,8 @@ def logout(transactions):
 #######
 def writeFile(filename, lines):
 	file = open(filename, 'w+')
-	for line in lines:
+	for line in lines[:-1]:
 		file.write(line + "\n")
+	if len(lines) > 0:
+		file.write(lines[len(lines)-1])
 	file.close()

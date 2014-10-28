@@ -1,4 +1,6 @@
 
+import sys
+
 from login import *
 from logout import *
 
@@ -13,18 +15,21 @@ from transfer import *
 ##	This function includes the infinite loop used while the program is running.
 ##  It processes the input commands.
 #######
-def main():
+def main(argv):
 
 	loginType = 0
 
 	accounts = []	
 	transactions = []
 	withdrawals = {}
-
+	
+	if (not len(argv) == 2):
+		return
+	
 	# Infinite loop for receiving input.
 	while True:
 		
-		command = raw_input('> ')
+		command = raw_input('')
 		
 		# Disallow any actions until login.
 		if (not loginType and command != 'login'):
@@ -36,11 +41,11 @@ def main():
 
 		# Execute login
 		elif command == 'login':
-			loginType = login(accounts)
+			loginType = login(accounts, argv[0])
 		
 		# Execute logout
 		elif command == 'logout':
-			loginType = logout(transactions)
+			loginType = logout(transactions, argv[1])
 
 		# Disallow create in retail mode
 		elif loginType == 2 and command == 'create':
@@ -77,4 +82,4 @@ def main():
 
 # Call main
 if __name__ == "__main__":
-	main()
+	main(sys.argv[1:])
