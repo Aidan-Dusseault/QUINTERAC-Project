@@ -9,9 +9,15 @@ set "out_dir=./results/d%YYYY%-%MM%-%DD%_t%HH%-%Min%-%Sec%"
 mkdir "%out_dir%" >NUL
 
 echo Running Tests...
+echo Test ID: d%YYYY%-%MM%-%DD%_t%HH%-%Min%-%Sec%
 echo ________________
 
-
+echo ________________ >>%out_dir%/test_log.txt
+echo Test Log >>%out_dir%/test_log.txt
+echo Test ID: d%YYYY%-%MM%-%DD%_t%HH%-%Min%-%Sec% >>%out_dir%/test_log.txt
+echo ________________ >>%out_dir%/test_log.txt
+echo Failed Tests: >>%out_dir%/test_log.txt
+echo ________________ >>%out_dir%/test_log.txt
 
 for %%t in (create delete deposit general login logout transfer withdraw) do (
 
@@ -20,8 +26,14 @@ for %%t in (create delete deposit general login logout transfer withdraw) do (
 	mkdir "%out_dir%/%%t/output" >NUL
 
 	for %%f in (.\tests\%%t\input\*) do (
-		echo %%~nf
+		echo Running: %%~nf
 		python frontend/scripts/main.py .\tests\%%t\accounts\accounts_%%~nf.txt %out_dir%/%%t/summary/summary_%%~nf.txt < %%f >> %out_dir%/%%t/output/output_%%~nf.txt
+		
+		python fileCompare.py %%~nf %out_dir% >NUL
+		if errorlevel 1 (
+			echo %%~nf failed.
+			echo %%~nf >>%out_dir%/test_log.txt
+		)
 	)
 )
 
