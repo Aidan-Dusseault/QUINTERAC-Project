@@ -30,9 +30,13 @@ def validAccountNumber(account, accountList):
 	
 	try:
 		accountId = int(account)
+		if (accountId > 999999):
+			print 'Error, invalid account number.'
+			return False
 	except ValueError:
-		return False
 		print 'Error, invalid account number.'
+		return False
+
 		
 	return True
 

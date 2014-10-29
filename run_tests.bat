@@ -21,10 +21,9 @@ for %%t in (create delete deposit general login logout transfer withdraw) do (
 
 	for %%f in (.\tests\%%t\input\*) do (
 		echo %%~nf
-		python frontend/scripts/main.py .\tests\%%t\accounts\%%t_accounts_1.txt %out_dir%/%%t/summary/%%~nf.txt < %%f >> %out_dir%/%%t/output/%%~nf.txt
+		python frontend/scripts/main.py .\tests\%%t\accounts\accounts_%%~nf.txt %out_dir%/%%t/summary/summary_%%~nf.txt < %%f >> %out_dir%/%%t/output/output_%%~nf.txt
 	)
 )
 
 echo ________________
 echo Tests Complete
-
