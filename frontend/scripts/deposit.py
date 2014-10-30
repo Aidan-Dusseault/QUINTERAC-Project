@@ -5,7 +5,7 @@ from util import *
 ##	This function asks for user input for account number and amount, stopping if the input is illegal.
 ##  It appends the deposit transaction to the transaction list.
 #######
-def deposit(loginType, accounts, transactions):
+def deposit(loginType, accounts, deletions, transactions):
 
 	# Get the account number
 	accountNumber = raw_input('')
@@ -14,7 +14,7 @@ def deposit(loginType, accounts, transactions):
 	if (validAccountNumber(accountNumber, accounts)):
 
 		# Check to see if the account exists
-		if (accountExists(accountNumber, accounts)):
+		if (accountExists(accountNumber, deletions, accounts)):
 		
 			# Get the amount number
 			amountNumber = raw_input('')

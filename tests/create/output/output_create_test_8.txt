@@ -1,1 +1,1 @@
-Error, cannot perform transactions on new accounts.
+Error, account does not exist.

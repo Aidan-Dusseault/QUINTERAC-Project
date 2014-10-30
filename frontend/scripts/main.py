@@ -21,8 +21,9 @@ def main(argv):
 
 	loginType = 0
 
-	accounts = []	
+	accounts = []
 	transactions = []
+	deletions = []
 	withdrawals = {}
 	
 	if (not len(argv) == 2):
@@ -55,7 +56,7 @@ def main(argv):
 			
 		# Execute create
 		elif command == 'create':
-			create(accounts, transactions)
+			create(accounts, deletions, transactions)
 			
 		# Disallow delete in retail mode
 		elif loginType == 2 and command == 'delete':
@@ -63,24 +64,26 @@ def main(argv):
 
 		# Execute delete
 		elif command == 'delete':
-			delete(accounts, transactions)
+			delete(accounts, deletions, transactions)
 			
 		# Execute deposit
 		elif command == 'deposit':
-			deposit(loginType, accounts, transactions)
+			deposit(loginType, accounts, deletions, transactions)
 
 		# Execute withdraw
 		elif command == 'withdraw':
-			withdraw(loginType, accounts, transactions, withdrawals)
+			withdraw(loginType, accounts, deletions, transactions, withdrawals)
 			
 		# Execute transfer
 		elif command == 'transfer':
-			transfer(loginType, accounts, transactions)
+			transfer(loginType, accounts, deletions, transactions)
 			
 		else:
 			print "Error, command not recognized."
-                if loginType == 0:
-                        withdrawals = {}
+			
+        if loginType == 0:
+			withdrawals = {}
+			deletions = []
 
 # Call main
 if __name__ == "__main__":

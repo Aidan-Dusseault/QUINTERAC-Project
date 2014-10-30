@@ -5,7 +5,7 @@ from util import *
 ##  This function asks for user input for account number and account name, stopping if the input is illegal.
 ##  It appends the create transaction to the transaction list.
 #######
-def create(accounts, transactions):
+def create(accounts, deletions, transactions):
 	
 	# Get the account number
 	accountNumber = raw_input('')
@@ -14,7 +14,8 @@ def create(accounts, transactions):
 	if (validAccountNumber(accountNumber, accounts)):
 		
 		# Check to see if the account exists
-		if (not accountExists(accountNumber, accounts)):
+
+		if (not accountExists(accountNumber, deletions, accounts) and (int(accountNumber) not in deletions)):
 			
 			# Get the account name
 			accountName = raw_input('')

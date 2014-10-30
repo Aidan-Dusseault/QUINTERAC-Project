@@ -12,13 +12,18 @@ def input():
 #######
 ##	This function checks to see if a given account is in the accounts list.
 #######
-def accountExists(account, accountList):
+def accountExists(account, deletions, accountList):
 
 	accountId = int(account)
+
+	for deletedAccount in deletions:
+			
+		if accountId == int(deletedAccount):
+			return False
 	
 	for currentAccount in accountList:
 			
-		if account == currentAccount:
+		if accountId == int(currentAccount):
 			return True
 			
 	return False
@@ -30,7 +35,7 @@ def validAccountNumber(account, accountList):
 	
 	try:
 		accountId = int(account)
-		if (accountId > 999999):
+		if (accountId > 999999 or accountId < 1):
 			print 'Error, invalid account number.'
 			return False
 	except ValueError:
@@ -89,8 +94,7 @@ def validAmountNumber(loginType, amount):
 def formatNumber(number, length):
 
 	outputString = number.strip()
-	outputString.rjust(length, '0')
-	return outputString
+	return outputString.rjust(length, '0')
 	
 #######
 ##	This function returns a string of a number of given length, padded by spaces on the right.
@@ -98,5 +102,4 @@ def formatNumber(number, length):
 def formatAccountName(accountName):
 
 	outputString = accountName.strip()
-	outputString.ljust(15, ' ')
-	return outputString
+	return outputString.ljust(15, ' ')

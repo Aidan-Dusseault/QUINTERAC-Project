@@ -24,16 +24,13 @@ for %%t in (create delete deposit general login logout transfer withdraw) do (
 	mkdir "%out_dir%/%%t" >NUL
 	mkdir "%out_dir%/%%t/summary" >NUL
 	mkdir "%out_dir%/%%t/output" >NUL
+	mkdir "%out_dir%/%%t/logs" >NUL
 
 	for %%f in (.\tests\%%t\input\*) do (
 		echo Running: %%~nf
 		python frontend/scripts/main.py .\tests\%%t\accounts\accounts_%%~nf.txt %out_dir%/%%t/summary/summary_%%~nf.txt < %%f >> %out_dir%/%%t/output/output_%%~nf.txt
+		python fileCompare.py %%~nf %out_dir%
 		
-		python fileCompare.py %%~nf %out_dir% >NUL
-		if errorlevel 1 (
-			echo %%~nf failed.
-			echo %%~nf >>%out_dir%/test_log.txt
-		)
 	)
 )
 
