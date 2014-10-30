@@ -1,1 +1,1 @@
-You are already logged out.
+Error, please login before entering other commands.

@@ -1,1 +1,1 @@
-Error, nonexistant account.
+Error, invalid account number.

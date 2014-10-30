@@ -1,1 +1,1 @@
-Error, invalid amount.
+Error, amount over maximum.

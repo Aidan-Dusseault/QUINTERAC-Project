@@ -1,1 +1,1 @@
-Error, amount over maximum.
+Error, account does not exist.
