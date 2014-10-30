@@ -23,15 +23,19 @@ def login(accounts, filename):
 	if (readAccounts(filename, accounts)):
 		return accountType
 	else:
-		print "Error, invalid accounts list file"
+		print "Error, invalid accounts list file."
 		return 0
 
 #######
 ##  This function reads the designated accounts file and populates the accounts list.
 #######
 def readAccounts(filename, accounts):
-	file = open(filename, 'r')
-	for line in file:
-		accounts.append(line.strip())
-	file.close()	
+	try:
+		file = open(filename, 'r')
+		for line in file:
+			accounts.append(line.strip())
+		file.close()
+	except IOError:
+		return False
+
 	return True

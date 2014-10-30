@@ -7,15 +7,12 @@ from util import *
 #######
 def withdraw(loginType, accounts, deletions, transactions, withdrawals):
 
-	# Set the acceptable limits for withdrawing.
-    if loginType == 1:
-        validTotal = 100000
-    else:
-        validTotal = 999999999
+	# Set the acceptable limits for withdrawing in retail.
+	validTotal = 100000
 
 	# Get the account number
 	accountNumber = raw_input('')
-	
+		
 	# Check to see if the number is legal
 	if (validAccountNumber(accountNumber, accounts)):
 
@@ -34,10 +31,11 @@ def withdraw(loginType, accounts, deletions, transactions, withdrawals):
 					withdrawals[accountNumber] = 0
 
 				# Check if the sum total of withdrawals is legal
-				if(withdrawals[accountNumber] + int(amountNumber) <= validTotal):
+				if(withdrawals[accountNumber] + int(amountNumber) <= validTotal or loginType == 1):
 					# Add the transaction and update the dictionary
 					transactions.append("02 " + formatNumber(accountNumber, 6) + " " + formatNumber(accountNumber, 6) +" " + formatNumber(amountNumber, 8) + " 000000000000000")
 					withdrawals[accountNumber] += int(amountNumber)
-
+				else:
+					print "Error, amount over maximum."
 		else:
 			print "Error, account does not exist."

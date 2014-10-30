@@ -18,15 +18,17 @@ def transfer(loginType, accounts, deletions, transactions):
             
             if(validAccountNumber(accountNumber2, accounts)):
         
-                if(accountExists(accountNumber2, deletions, accounts)):
+				if(accountExists(accountNumber2, deletions, accounts)):
 
 					if (not int(accountNumber) == int(accountNumber2)):
 
 						amountNumber = raw_input('')
 						if(validAmountNumber(loginType, amountNumber)):
-							transactions.append("01 " + formatNumber(accountNumber, 6) + " " + formatNumber(accountNumber, 6) + " " + formatNumber(amountNumber, 8) + " 000000000000000")
-							
+							transactions.append("03 " + formatNumber(accountNumber, 6) + " " + formatNumber(accountNumber2, 6) + " " + formatNumber(amountNumber, 8) + " 000000000000000")
+
 					else:
 						print "Error, both accounts identical."
+				else:
+					print "Error, account does not exist."
         else:
-            print "Error, account does not exist."
+			print "Error, account does not exist."

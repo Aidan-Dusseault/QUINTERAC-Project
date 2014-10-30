@@ -18,12 +18,12 @@ testSection = sys.argv[1].split("_")[0]
 outDirectory = sys.argv[2]
 
 outputFileNameOriginal = "./tests/"+testSection+"/output/output_"+sys.argv[1]+".txt"
-outputFileNameNew = outDirectory+"/"+testSection+"/output/output_"+sys.argv[1]+".txt"
+outputFileNameNew = outDirectory+"/"+testSection+"/output/output_"+sys.argv[1]+".log"
 
 summaryFileNameOriginal = "./tests/"+testSection+"/summary/summary_"+sys.argv[1]+".txt"
-summaryFileNameNew = outDirectory+"/"+testSection+"/summary/summary_"+sys.argv[1]+".txt"
+summaryFileNameNew = outDirectory+"/"+testSection+"/summary/summary_"+sys.argv[1]+".log"
 
-logFileName = outDirectory+"/"+testSection+"/logs/log_"+sys.argv[1]+".txt"
+logFileName = outDirectory+"/"+testSection+"/logs/log_"+sys.argv[1]+".log"
 logFile = open(logFileName, 'w')
 
 failed = False

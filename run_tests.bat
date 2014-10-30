@@ -12,12 +12,12 @@ echo Running Tests...
 echo Test ID: d%YYYY%-%MM%-%DD%_t%HH%-%Min%-%Sec%
 echo ________________
 
-echo ________________ >>%out_dir%/test_log.txt
-echo Test Log >>%out_dir%/test_log.txt
-echo Test ID: d%YYYY%-%MM%-%DD%_t%HH%-%Min%-%Sec% >>%out_dir%/test_log.txt
-echo ________________ >>%out_dir%/test_log.txt
-echo Failed Tests: >>%out_dir%/test_log.txt
-echo ________________ >>%out_dir%/test_log.txt
+echo ________________ >>%out_dir%/test_log.log
+echo Test Log >>%out_dir%/test_log.log
+echo Test ID: d%YYYY%-%MM%-%DD%_t%HH%-%Min%-%Sec% >>%out_dir%/test_log.log
+echo ________________ >>%out_dir%/test_log.log
+echo Failed Tests: >>%out_dir%/test_log.log
+echo ________________ >>%out_dir%/test_log.log
 
 for %%t in (create delete deposit general login logout transfer withdraw) do (
 
@@ -28,7 +28,7 @@ for %%t in (create delete deposit general login logout transfer withdraw) do (
 
 	for %%f in (.\tests\%%t\input\*) do (
 		echo Running: %%~nf
-		python frontend/scripts/main.py .\tests\%%t\accounts\accounts_%%~nf.txt %out_dir%/%%t/summary/summary_%%~nf.txt < %%f >> %out_dir%/%%t/output/output_%%~nf.txt
+		python frontend/scripts/main.py .\tests\%%t\accounts\accounts_%%~nf.txt %out_dir%/%%t/summary/summary_%%~nf.log < %%f >> %out_dir%/%%t/output/output_%%~nf.log
 		python fileCompare.py %%~nf %out_dir%
 		
 	)
