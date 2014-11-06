@@ -1,3 +1,18 @@
+::::::::::::::::::::::::::::::::::::::::::::::::
+::
+:: run_tests.bat
+:: Authors: Kyle Sunderland, Aidan Dusseault
+:: Last Modified: Oct 30, 2014
+::
+:: This script automatically runs and tests the frontend system
+:: using files contained in the ./tests/ folder.
+::
+:: Tests summaries are written in ./results/d"date"t"time" folder
+:: organized by tests subject.
+::
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
