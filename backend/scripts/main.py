@@ -54,6 +54,8 @@ def main(argv):
     # create command detected
     elif transactionType == "04":
       create(accountNumber1, accountName, accounts)
+      
+    # delete command detected  
     elif transactionType == "05":
       delete(accountNumber1, accountName, accounts)
 
@@ -110,9 +112,10 @@ def create(accountNumber, accountName, accounts):
   
     # create the account
     accountList[accountNumber] = [0, accountName]
-    return True
 
-  return False
+  else:
+    print "Error: Account " + accountNumber + " already exists."
+    exit(4)
 
   
 #######
@@ -129,9 +132,13 @@ def delete(accountNumber, accountName, accounts):
   
       # remove the account from the dictionary
       del accountList[accountNumber]
-      return True
-    
-  return False
+     
+    else:
+      print "Error: Account " + accountNumber + " to be deleted has non-zero balance."
+      exit(5)
+  else:
+    print "Error: Account " + accountNumber + " does not exist."
+    exit(5)
 
   
 #######
@@ -142,8 +149,13 @@ def deposit(accountNumber, amount, accounts):
   # check if account exists
   if (accountNumber in accounts):
     accounts[accountNumber][0] += amount
-
+    
+  else:
+    print "Error: Account " + accountNumber + " does not exist."
+    exit(1)
   
+
+
 #######
 ##  This function removes a specified amount from an account if it exists.
 #######
@@ -151,9 +163,18 @@ def withdraw(accountNumber, amount, accounts):
   
   # check if account exists
   if (accountNumber in accounts):
-    accounts[accountNumber][0] -= amount
-
   
+    if (accountList[accountNumber][0] >= amount)
+      accounts[accountNumber][0] -= amount
+    else:
+      print "Error: Account " + accountNumber + " is overdrawn."
+      exit(2)
+      
+  else:
+    print "Error: Account " + accountNumber + " does not exist."
+    exit(2)
+
+
 #######
 ##  This function removes a specified amount from an one account and adds it to a second if
 ##  both accounts exist.
@@ -161,10 +182,23 @@ def withdraw(accountNumber, amount, accounts):
 def transfer(accountNumber1, accountNumber2, amount, accounts):
   
   # check if accounts exist
-  if (accountNumber1 in accounts and accountNumber1 in accounts):
-    accounts[accountNumber1][0] -= amount
-    accounts[accountNumber2][0] += amount
-
+  if (accountNumber1 in accounts):
+    if (accountNumber2 in accounts):
+  
+      if (accounts[accountNumber1][0] >= amount):
+        accounts[accountNumber1][0] -= amount
+        accounts[accountNumber2][0] += amount
+        
+      else:
+        print "Error: Account " + accountNumber + " is overdrawn."
+        exit(3)
+        
+    else:
+      print "Error: Account " + accountNumber2 + " does not exist."
+      exit(3)
+  else:
+    print "Error: Account " + accountNumber1 + " does not exist."
+    exit(3)
   
 #######
 ##  This function creates the new master accounts file using the currently stored dictionary.
