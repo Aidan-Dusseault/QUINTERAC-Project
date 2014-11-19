@@ -1,0 +1,1 @@
+Error: Account 123456 to be deleted has non-zero balance.
