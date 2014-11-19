@@ -23,7 +23,7 @@ def main(argv):
   # Loop through the lines in the transaction file
   for line in transactionLines:
     parsedLine = line.split(" ")
-      
+    
     # stop is line is not properly formated
     if len(parsedLine) < 5 or len(parsedLine) > 5:
       break
@@ -61,7 +61,7 @@ def main(argv):
 
   # write the new master accounts file
   outputMasterAccountsFilename = argv[2]
-  writeNewMasterFile(outputMasterAccountsFile, accounts)
+  writeNewMasterFile(outputMasterAccountsFilename, accounts)
 
   # write the new valid accounts file
   outputValidAccountsFilename = argv[3]
@@ -72,6 +72,7 @@ def main(argv):
 ##  This function reads the designated file and populates the list of lines.
 #######
 def readFile(filename, lines):
+  
   try:
     file = open(filename, 'r')
     for line in file:
@@ -128,10 +129,10 @@ def delete(accountNumber, accountName, accounts):
   if (accountNumber in accounts):
     
     # check to make sure the balance is zero
-    if (accountList[accountNumber][0] == 0):
+    if (accounts[accountNumber][0] == 0):
   
       # remove the account from the dictionary
-      del accountList[accountNumber]
+      del accounts[accountNumber]
      
     else:
       print "Error: Account " + accountNumber + " to be deleted has non-zero balance."
@@ -164,7 +165,7 @@ def withdraw(accountNumber, amount, accounts):
   # check if account exists
   if (accountNumber in accounts):
   
-    if (accountList[accountNumber][0] >= amount)
+    if (accounts[accountNumber][0] >= amount):
       accounts[accountNumber][0] -= amount
     else:
       print "Error: Account " + accountNumber + " is overdrawn."
