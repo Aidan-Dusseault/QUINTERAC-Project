@@ -1,0 +1,6 @@
+login
+retail
+withdraw
+135791
+123456
+logout

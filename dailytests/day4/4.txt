@@ -1,0 +1,7 @@
+login
+agent
+transfer
+246802
+135791
+5000000
+logout
