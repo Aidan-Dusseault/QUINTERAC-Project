@@ -1,0 +1,9 @@
+login
+agent
+withdraw
+654321
+10000000
+deposit
+654321
+10000
+logout

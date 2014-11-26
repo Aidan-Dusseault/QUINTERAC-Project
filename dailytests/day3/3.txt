@@ -1,0 +1,9 @@
+login
+retail
+withdraw
+135791
+5000
+deposit
+135791
+10000
+logout

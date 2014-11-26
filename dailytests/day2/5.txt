@@ -1,0 +1,6 @@
+login
+retail
+deposit
+999999
+10000000
+logout
