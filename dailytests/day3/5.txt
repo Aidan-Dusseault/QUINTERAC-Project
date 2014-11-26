@@ -1,0 +1,11 @@
+login
+retail
+transfer
+999999
+135791
+5000
+transfer
+123456
+999999
+5000
+logout
