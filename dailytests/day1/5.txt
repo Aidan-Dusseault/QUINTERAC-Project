@@ -1,0 +1,6 @@
+login
+agent
+create
+999999
+NNNNNNNNNNNNNNN
+logout
