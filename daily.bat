@@ -4,39 +4,28 @@
 :: Authors: Kyle Sunderland, Aidan Dusseault
 :: Last Modified: Oct 30, 2014
 ::
-:: This script automatically runs the system using the test files.
+:: This script automatically runs the system using the specified files.
 ::
-:: Output summaries are written in ./output/d"date"t"time" folder.
+:: Output summaries are written in the specified folder.
 ::
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-:: Get the date and time in order to create a unique test directory.
-for /f "tokens=2 delims==" %%a in ('wmic OS Get localdatetime /value') do set "date=%%a"
-set "year=%date:~0,4%"
-set "month=%date:~4,2%"
-set "day=%date:~6,2%"
-set "hour=%date:~8,2%"
-set "minute=%date:~10,2%"
-set "second=%date:~12,2%"
+if not exist %2 mkdir "%2" >NUL
+if not exist %2/summary mkdir "%2/summary" >NUL
 
-:: Create a unique test directory based on the current date/time.
-set "out_dir=./output/d%year%-%month%-%day%_t%hour%-%minute%-%second%"
-mkdir "%out_dir%" >NUL
+if not exist %2/master_accounts.log type NUL >%2/master_accounts.log
+if not exist %2/valid_accounts.log  type NUL >%2/valid_accounts.log 
 
-:: Loop into each of the test categories.
-for %%t in (create delete deposit general login logout transfer withdraw) do (
+:: Loop through the tests in the current category.
+for %%f in (%1/*) do (
 
-	:: Loop through the tests in the current category.
-	for %%f in (.\tests\%%t\input\*) do (
-	
-		:: Run the tests and compare the files.
-		python frontend/scripts/main.py .\tests\%%t\accounts\accounts_%%~nf.txt %out_dir%/%%~nf.log < %%f >> nul
+	python ./frontend/scripts/main.py %2/valid_accounts.log %2/summary/%%~nf.log < %1/%%f
 
-	)
 )
-python frontend/scripts/main.py .\tests\%%t\accounts\accounts_%%~nf.txt %out_dir%/%%~nf.log
 
+python fileMerge.py %2/summary %2/merged_summary.log
+
+python ./backend/scripts/main.py %2/master_accounts.log %2/merged_summary.log %2/master_accounts.log %2/valid_accounts.log 

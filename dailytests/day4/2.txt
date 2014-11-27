@@ -1,5 +1,5 @@
 login
-deposit
+agent
 withdraw
 654321
 1000000

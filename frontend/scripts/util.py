@@ -78,7 +78,7 @@ def validAmountNumber(loginType, amount):
 		return False		
 	
 	if (loginType == 1):
-		if (amountInt > 999999):
+		if (amountInt > 99999999):
 			print 'Error, amount over maximum.'
 			return False
 	elif (loginType == 2):

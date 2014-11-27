@@ -1,5 +1,5 @@
 login
-retail
+agent
 deposit
 999999
 10000000

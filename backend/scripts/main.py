@@ -112,7 +112,7 @@ def create(accountNumber, accountName, accounts):
   if (not accountNumber in accounts):
   
     # create the account
-    accountList[accountNumber] = [0, accountName]
+    accounts[accountNumber] = [0, accountName]
 
   else:
     print "Error: Account " + accountNumber + " already exists."
@@ -191,7 +191,7 @@ def transfer(accountNumber1, accountNumber2, amount, accounts):
         accounts[accountNumber2][0] += amount
         
       else:
-        print "Error: Account " + accountNumber + " is overdrawn."
+        print "Error: Account " + accountNumber1 + " is overdrawn."
         exit(3)
         
     else:
@@ -218,7 +218,7 @@ def writeNewMasterFile(filename, accounts):
     # format the output
     accountNumber = key
     accountBalance = str(accounts[key][0])
-    accountBalance.rjust(8, '0')
+    accountBalance = accountBalance.rjust(8, '0')
     accountName = accounts[key][1]
   
     # write formatted output to file
