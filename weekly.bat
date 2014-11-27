@@ -34,6 +34,8 @@ for %%f in (day1 day2 day3 day4 day5) do (
 	call daily.bat ./dailytests/%%f %out_dir%
 	
 	copy %out_dir%\merged_summary.log %out_dir%\%%f_merged_summary.log >NUL
+	copy %out_dir%\merged_summary.log %out_dir%\%%f_master_accounts.log >NUL
 )
 
 del %out_dir%\merged_summary.log
+del %out_dir%\master_accounts.log
